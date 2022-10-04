@@ -20,7 +20,7 @@
 }
 
 .home {
-  background-image: url('./images/img-1.jpg');
+  
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -29,7 +29,7 @@
 }
 
 .services {
-  background-image: url('./images/img-2.jpg');
+  background-image: url('./components/images/img-2.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -38,7 +38,7 @@
 }
 
 .products {
-  background-image: url('./images/img-3.jpg');
+  background-image: url('./components/images/img-3.jpg');
   background-position: center;
   background-size: fill;
   background-repeat: no-repeat;
@@ -47,7 +47,7 @@
 }
 
 .contact-us {
-  background-image: url('./images/img-4.jpg');
+  background-image: url('./components/images/img-4.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -56,7 +56,7 @@
 }
 
 .sign-up {
-  background-image: url('./images/img-7.jpg');
+  background-image: url('./components/images/img-5.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -65,7 +65,7 @@
 }
 
 .marketing {
-  background-image: url('./images/img-6.jpg');
+  background-image: url('./components/images/img-6.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -74,7 +74,7 @@
 }
 
 .consulting {
-  background-image: url('./images/img-5.jpg');
+  background-image: url('./components/images/img-7.jpg');
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
