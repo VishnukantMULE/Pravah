@@ -2,24 +2,24 @@ import React from 'react';
 import '../../App.css';
 import img from '../images/havana.png'
 import '../PagesCss/Home.css'
+import vdo from '../videos/bgvideo.mp4'
 
 export default function Home() {
   return (
     <>
-    <div className='cardp'>
-          <header className="polaroid"><video className='havana' id="video" controls preload="none" poster={img}>
-  <source id="mp4" src='https://res.cloudinary.com/dsp4p9uyy/video/upload/v1664878460/EnglishSongs/Camila_Cabello_-__Havana___live_at_Capital_s_Summertime_Ball_2018_720P_HD_1_sd2xfn.mp4' type="video/mp4" />
+    <div className='bg'>
 
-</video>
-      
-
-      </header>
+    <video className='bgvideo' autoPlay loop muted>
+            <source id="mp4" src={vdo} type="video/mp4" />
+          </video>
+      <div className='cardp'>
+        <div className="polaroid">
+          <video className='havana' id="video"  preload="none" poster={img}>
+            <source id="mp4" src='https://res.cloudinary.com/dsp4p9uyy/video/upload/v1664893412/EnglishSongs/Camila_Cabello___Havana_ACL_Festival_1080P_HD_pqoe9i.mp4' type="video/mp4" />
+          </video>
+        </div>
+      </div>
     </div>
-   
-
-
-
-    
     </>
   );
 }

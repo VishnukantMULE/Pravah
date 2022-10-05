@@ -15,8 +15,8 @@ function Navbar() {
     <>
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          Pravah Studio
-          <i class='fa-sharp fa-solid fa-record-vinyl' />
+          Pravah.Studio
+         
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
