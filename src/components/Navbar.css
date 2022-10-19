@@ -16,7 +16,7 @@
   font-size: 2rem;
 }
 .navbar-logo:hover{
-  color: #55ff00;
+  color: #ff0000;
 }
 
 .fa-firstdraft {
@@ -83,7 +83,7 @@
   }
 
   .nav-menu.active {
-    background: #242222;
+    background: #000000;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
@@ -143,7 +143,5 @@
     transition: 250ms;
   }
 
-  button {
-    display: none;
-  }
+
 }
