@@ -8,57 +8,57 @@ function Navbar() {
 
   const closeMobileMenu = () => setClick(false);
 
-  
+
 
   return (
     <>
-      <nav className='navbar'>
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+      <nav className='navbar_pravah'>
+        <Link to='/' className='navbar_logop' onClick={closeMobileMenu}>
           Pravah.Studio
-         
+
         </Link>
-        
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+
+        <ul className={click ? 'navbar_menu active' : 'navbar_menu'}>
+          <li className='navbar_items'>
+            <Link to='/' className='navbar_links' onClick={closeMobileMenu}>
               Home
             </Link>
           </li>
           <li
-            className='nav-item'
-           
+            className='navbar_items'
+
           >
             <Link
               to='/services'
-              className='nav-links'
-              
+              className='navbar_links'
+
             >
-              Trending 
+              Trending
             </Link>
-           
+
           </li>
-          <li className='nav-item'>
+          <li className='navbar_items'>
             <Link
               to='/products'
-              className='nav-links'
+              className='navbar_links'
             >
               Stream Now
             </Link>
           </li>
-          <li className='nav-item'>
+          <li className='navbar_items'>
             <Link
               to='/contact-us'
-              className='nav-links'
+              className='navbar_links'
               onClick={closeMobileMenu}
             >
               Contact Us
             </Link>
           </li>
-          <li className='nav-item ' >
+          <li className='navbar_items ' >
             <Link
               to='/sign-up'
-              className='nav-links-mobile nav-links'
-              
+              className='navbar_links-mobile navbar_links'
+
               onClick={closeMobileMenu}
             >
               Sign Up
