@@ -1,11 +1,8 @@
-import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/Login.css'
 import { Link } from 'react-router-dom';
-
-
 
 
 export default function Login({ setUsername }) {
@@ -18,10 +15,19 @@ export default function Login({ setUsername }) {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:4000/api/login', { email, password });
-      alert(response.data.message);
+      const response = await fetch('http://localhost:4000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      alert(data.message);
       if (response.status === 200) {
-        setUsername(response.data.username);
+        setUsername(data.username);
         navigate('/movies'); // Replace with your actual route
       }
     } catch (err) {
@@ -48,3 +54,4 @@ export default function Login({ setUsername }) {
 
 
 }
+
