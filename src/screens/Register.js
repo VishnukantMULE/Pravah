@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import '../css/Register.css';
 import { Link,useNavigate } from 'react-router-dom';
 
@@ -15,15 +14,22 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4000/api/register', {
-        username,
-        dob,
-        email,
-        contact,
-        password
+      const response = await fetch('http://localhost:4000/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username,
+          dob,
+          email,
+          contact,
+          password
+        })
       });
-      console.log(response.data);
-      navigate('/linksend')
+      const data = await response.json();
+      console.log(data);
+      navigate('/linksend');
     } catch (err) {
       console.error(err);
       alert("Something is wrong")
@@ -84,7 +90,7 @@ export default function Register() {
       </div>
       <button type="submit">Register</button>
       <br />
-      <p>Alredy Register Please Login <Link to='/login'>Login</Link></p>
+      <p>Already registered? Please login <Link to='/login'>here</Link>.</p>
     </form>
   );
 }
