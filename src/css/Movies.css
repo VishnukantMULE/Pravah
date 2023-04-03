@@ -1,0 +1,109 @@
+.movies-container {
+    display: flex;
+  }
+  
+  .sidebar-container {
+    width: 100px;
+    background-color: #e5e5e5;
+  }
+  
+  .sidebar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 16px;
+    /* background-color: #00ffa6; */
+    text-align: center !important;
+  }
+  
+  .sidebar-list li {
+    padding: 10px;
+    border-bottom: 1px solid #64d9d1;
+  }
+  
+  .sidebar-list button {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+
+  }
+  
+  .sidebar-list button:hover {
+    border-radius: 16px;
+    background-color: #9c9696fd;
+  }
+  
+  .sidebar-list button.selected {
+    border-radius: 16px;
+    text-align: center;
+    font-size: 1.2em;
+
+  }
+  
+  .content-container {
+    flex: 1;
+  }
+  @media (max-width: 768px) {
+    .movies-container {
+      display: block;
+    }
+  
+    .sidebar-container {
+      width: 100%;
+    }
+  
+    .sidebar-list li {
+      border: none;
+    }
+  
+    .sidebar-list button {
+      width: 100%;
+      font-size: 20px;
+      padding: 15px;
+    }
+  
+    .content-container {
+      margin-top: 20px;
+    }
+  }
+  @media (max-width: 480px) {
+    .movies-container {
+      flex-direction: column-reverse; /* Reverse the order of the flex items */
+    }
+    .sidebar-container {
+      border-top-color: rgb(255, 3, 3);
+      border-top: solid 1px;
+
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #f1f1f1;
+      z-index: 5;
+    }
+    .sidebar-list {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sidebar-list li {
+      display: inline-block;
+      border: none;
+      padding: 10px;
+      margin-right: 10px;
+      width: 100%;
+    }
+    .sidebar-list button {
+      font-size: 16px;
+      padding: 10px;
+    }
+    .content-container {
+      margin-top: 20px;
+    }
+  }
+  

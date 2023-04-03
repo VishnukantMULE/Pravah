@@ -1,0 +1,113 @@
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .login-container {
+      width: 50%;
+      margin: auto;
+      padding: 2rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+    label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    input[type='text'],
+    input[type='password'] {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+  
+    button[type='submit'] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 3px;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
+  
+  /* Tablet */
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .login-container {
+      width: 75%;
+      margin: auto;
+      padding: 2rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+    label {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    input[type='text'],
+    input[type='password'] {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+  
+    button[type='submit'] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 3px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  }
+  
+  /* Mobile */
+  @media screen and (max-width: 767px) {
+    .login-container {
+        width: 90%;
+        margin: auto;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        }
+        
+        label {
+        display: block;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        }
+        
+        input[type='text'],
+        input[type='password'] {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 0.8rem;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        }
+        
+        button[type='submit'] {
+        background-color: #007bff;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 3px;
+        border: none;
+        font-size: 0.8rem;
+        cursor: pointer;
+        }
+}  

@@ -1,0 +1,30 @@
+.footer {
+    padding: 60px;
+  }
+  
+  @media (max-width: 991px) {
+    .footer {
+      padding: 40px;
+    }
+    .social-media-icons {
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .social-media-icons li {
+      margin-right: 10px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .footer {
+      padding: 20px;
+    }
+    .social-media-icons {
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .social-media-icons li {
+      margin-right: 5px;
+    }
+  }
+  

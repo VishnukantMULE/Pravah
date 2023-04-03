@@ -1,0 +1,131 @@
+.play-movie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.video-container {
+  width: 100%;
+  height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-video {
+  width: 80%;
+  height: 80%;
+  object-fit: fill;
+}
+
+.movie-details-container {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-poster {
+  width: 100%;
+  max-height: calc(100vh - 90px);
+  object-fit: cover;
+}
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.like-button,
+.save-button,
+.comment-button,
+.showdetails-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0 20px 20px 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.like-button span{
+  color: red;
+  padding: 10px;
+  font: inherit;
+  font-family: monospace;
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
+.like-button:hover,
+.save-button:hover,
+.comment-button:hover,
+.showdetails-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.like-button img,
+.save-button img,
+.comment-button img,
+.showdetails-button img {
+  height: 50px;
+  margin-right: 5px;
+}
+
+.movie-title {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.comments-container {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 50px;
+}
+
+.accordion-container {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 50px;
+}
+
+.accordion-container {
+  margin: 20px 0;
+}
+
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.accordion-label {
+  display: block;
+  padding: 10px;
+  background-color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.accordion-content {
+  padding: 10px;
+  background-color: #fff;
+}
+
+.movie-detail {
+  margin: 10px 0;
+  font-size: 16px;
+  text-align: left;
+  font-size: 1.5em;
+}
