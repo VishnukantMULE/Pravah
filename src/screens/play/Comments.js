@@ -6,7 +6,7 @@ function Comment(props) {
     const [newComment, setNewComment] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:4000/play', {
+        fetch('https://pravah.onrender.com/play', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ function Comment(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         // send newComment to the server or handle it in parent component
-        fetch('http://localhost:4000/comment', {
+        fetch('https://pravah.onrender.com/comment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ function Comment(props) {
                 setComments(data.Movie_Comment);
             }
             // fetch the updated comments
-            fetch('http://localhost:4000/play', {
+            fetch('https://pravah.onrender.com/play', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

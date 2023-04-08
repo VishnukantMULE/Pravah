@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../css/Music.css'
+import classNames from 'classnames';
+import '../css/Music.css';
+import Loading from './Loading';
 
 export default function Music() {
   const [musicData, setMusicData] = useState([]);
@@ -10,7 +12,7 @@ export default function Music() {
 
   useEffect(() => {
     // Fetch all the music data from the backend
-    fetch('http://localhost:4000/music')
+    fetch('https://pravah.onrender.com/music')
       .then(response => response.json())
       .then(data => setMusicData(data))
       .catch(error => console.error(error));
@@ -25,9 +27,6 @@ export default function Music() {
     setCurrentTime(0);
     setIsPlaying(false);
   };
-
-
-
 
   useEffect(() => {
     if (isPlaying && audioRef.current !== null) {
@@ -45,11 +44,14 @@ export default function Music() {
       }
     }
   }, [selectedMusic, currentTime, isPlaying]);
+  if (!musicData) {
+    return <Loading />
 
+  }
 
 
   return (
-    <div className="music-container ">
+    <div className="music-container">
       <div className="music-list">
         {musicData.map((music, index) => (
           <div
@@ -74,32 +76,23 @@ export default function Music() {
             <h2>{selectedMusic.Music_Name}</h2>
             <h3>{selectedMusic.Music_Singers.join(", ")}</h3>
             <div className="music-player-controls">
-             
-
+              {/* Add your music player controls here */}
             </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div className={classNames("audio-player-container", { "playing": isPlaying })}>
               <audio
                 ref={audioRef}
                 src={selectedMusic.Music_Link}
                 controls
                 autoPlay
                 onEnded={handleAudioEnded}
-                style={{
-                  width: "500px",
-                  maxWidth: "1000px",
-                  margin: "0 auto",
-                  backgroundColor: "#f2f2f2",
-                  padding: "10px",
-                  borderRadius: "10px"
-                }}
+                className="audio-player"
               >
                 Your browser does not support the audio element.
               </audio>
             </div>
-
           </div>
         </div>
       )}
     </div>
   );
-}  
+}

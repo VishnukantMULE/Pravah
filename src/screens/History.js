@@ -8,7 +8,7 @@ export default function History(props) {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const response = await fetch('http://localhost:4000/userh', {
+      const response = await fetch('https://pravah.onrender.com/userh', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ export default function History(props) {
 
   const handleClick = (movieId) => {
     navigate(`/play/${movieId}`);
-     fetch('http://localhost:4000/history', {
+     fetch('https://pravah.onrender.com/history', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

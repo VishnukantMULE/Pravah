@@ -9,22 +9,22 @@ export default function Leftsidebar({ selected, handleSelect }) {
           <ul className="sidebar-list">
             <li>
               <button className={selected === 'rcm' ? 'selected' : ''} onClick={() => handleSelect('rcm')}>
-                <img src={recommendedIcon} alt="Recommended" width="24" height="24" />
+                <img src={recommendedIcon} alt="Recommended" width="35" height="35" />
               </button>
             </li>
             <li>
               <button className={selected === 'history' ? 'selected' : ''} onClick={() => handleSelect('history')}>
-                <img src={historyIcon} alt="History" width="24" height="24" />
+                <img src={historyIcon} alt="History" width="35" height="35" />
               </button>
             </li>
             <li>
               <button className={selected === 'saved' ? 'selected' : ''} onClick={() => handleSelect('saved')}>
-                <img src={savedIcon} alt="Saved" width="24" height="24" />
+                <img src={savedIcon} alt="Saved" width="35" height="35" />
               </button>
             </li>
             <li>
               <button className={selected === 'settings' ? 'selected' : ''} onClick={() => handleSelect('settings')}>
-                <img src={settingsIcon} alt="Settings" width="24" height="24" />
+                <img src={settingsIcon} alt="Settings" width="35" height="35" />
               </button>
             </li>
           </ul>

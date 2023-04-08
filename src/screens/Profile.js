@@ -11,7 +11,7 @@ function Profile(props) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:4000/userdetails', {
+        const response = await fetch('https://pravah.onrender.com/userdetails', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

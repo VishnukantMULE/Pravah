@@ -20,7 +20,10 @@ function Movies(props) {
 
   return (
     <div className="movies-container">
+      <div className='leftsidebar'>
+
       <Leftsidebar selected={selected} handleSelect={handleSelect} />
+      </div>
       <div className="content-container">
         {/* Conditionally render components based on selected option */}
         {selected === 'rcm' && !movieSelected && <Recommanded  username={username}/>}

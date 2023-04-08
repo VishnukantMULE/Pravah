@@ -10,6 +10,7 @@ import commenticon from '../utils/icons/comment.png';
 import infoicon from '../utils/icons/info.png';
 import Recommand from './play/Recommand';
 
+import Loading from './Loading';
 
 
 function PlayMovie(props) {
@@ -21,7 +22,7 @@ function PlayMovie(props) {
     const [liked, setLiked] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:4000/play', {
+        fetch('https://pravah.onrender.com/play', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,7 +40,7 @@ function PlayMovie(props) {
 
     const handleSaveClick = () => {
      alert("Movie Saved")
-     fetch('http://localhost:4000/save', {
+     fetch('https://pravah.onrender.com/save', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -58,7 +59,7 @@ function PlayMovie(props) {
         setLiked(!liked);
       
       
-        fetch("http://localhost:4000/like", {
+        fetch("https://pravah.onrender.com/like", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -84,7 +85,7 @@ function PlayMovie(props) {
     };
 
     if (!movie) {
-        return <div>Loading...</div>;
+        return <Loading />;
     }
 
     return (
@@ -96,21 +97,21 @@ function PlayMovie(props) {
                 <h1 className="movie-title">{movie.Movie_Name}</h1>
                 <div className="buttons-container">
                     <button className="like-button" onClick={handleLikeClick} style={{ border: "none", backgroundColor: "transparent" }}>
-                        <span  style={{ color: "red" ,font:"20"}}>{movie.Movie_Like}</span>
-                        <img src={liked ? likeicon : like2icon} alt="like-icon" style={{ height: "50px", marginRight: "5px" }} />
+                        <span  style={{ color: "white" ,font:"20"}}>{movie.Movie_Like}</span>
+                        <img src={liked ? likeicon : like2icon} alt="like-icon" style={{ height: "40px", marginRight: "5px" }} />
                     </button>
 
                     <button className="save-button" onClick={handleSaveClick} style={{ border: "none", backgroundColor: "transparent" }}>
-                        <img src={saveicon} alt="save-icon" style={{ height: "50px", marginRight: "5px" }} />
-                        <span style={{ color: "#fff" }}>Save ({movie.Movie_Save})</span>
+                        <img src={saveicon} alt="save-icon" style={{ height: "40px", marginRight: "5px" }} />
+                        <span style={{ color: "#fff" }}> {movie.Movie_Save}</span>
                     </button>
                     <button className="comment-button" onClick={handleCommentClick} style={{ border: "none", backgroundColor: "transparent" }}>
-                        <img src={commenticon} alt="comment-icon" style={{ height: "50px", marginRight: "5px" }} />
-                        <span style={{ color: "#fff" }}>Comment</span>
+                        <img src={commenticon} alt="comment-icon" style={{ height: "40px", marginRight: "5px" }} />
+                        <span style={{ color: "#fff" }}></span>
                     </button>
                     <button className="showdetails-button" onClick={handleShowDetailsClick} style={{ border: "none", backgroundColor: "transparent" }}>
-                        <img src={infoicon} alt="info-icon" style={{ height: "50px", marginRight: "5px" }} />
-                        <span style={{ color: "#fff" }}>Show Details</span>
+                        <img src={infoicon} alt="info-icon" style={{ height: "40px", marginRight: "5px" }} />
+                        <span style={{ color: "#fff" }}></span>
                     </button>
 
                 </div>

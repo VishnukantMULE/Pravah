@@ -8,7 +8,7 @@ export default function Recommand(props) {
 
 
   useEffect(() => {
-    fetch('http://localhost:4000/recommend', {
+    fetch('https://pravah.onrender.com/recommend', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ export default function Recommand(props) {
   const handleClick = (movieId) => {
     // handle click event on the movie card
     navigate(`/play/${movieId}`);
-    fetch('http://localhost:4000/history', {
+    fetch('https://pravah.onrender.com/history', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

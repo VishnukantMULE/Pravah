@@ -1,12 +1,8 @@
-import React from 'react'
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../css/Login.css'
-import { Link } from 'react-router-dom';
-
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import '../css/Login.css';
 
 export default function Login({ setUsername }) {
- 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -15,12 +11,12 @@ export default function Login({ setUsername }) {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:4000/api/login', {
+      const response = await fetch('https://pravah.onrender.com/api/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
@@ -37,21 +33,34 @@ export default function Login({ setUsername }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      </div>
-      <button type="submit">Login</button>
-      <p>Dont have Account ? <Link to='/register'>Register</Link></p>
-
-    </form>
+    <div className="login-container">
+      <h2 className="login-header">Log In</h2>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <div className="input-container">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="submit-button">
+          Login
+        </button>
+      </form>
+      <p className="register-link">
+        Don't have an account? <Link to="/register">Register here</Link>
+      </p>
+    </div>
   );
-
-
 }
-

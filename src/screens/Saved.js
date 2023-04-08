@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import '../css/Recommanded.css'
 
 export default function Saved(props) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const response = await fetch('http://localhost:4000/usersaved', {
+      const response = await fetch('https://pravah.onrender.com/usersaved', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

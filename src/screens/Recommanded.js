@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/Recommanded.css'
+import Loading from './Loading';
+
 
 function Recommanded(props) {
   const [movies, setMovies] = useState([]);
@@ -8,7 +10,7 @@ function Recommanded(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:4000/marathi_movies')
+    fetch('https://pravah.onrender.com/marathi_movies')
       .then(response => response.json())
       .then(data => setMovies(data))
       .catch(error => console.error(error));
@@ -16,7 +18,7 @@ function Recommanded(props) {
 
   const handleClick = (movieId) => {
     navigate(`/play/${movieId}`);
-    fetch('http://localhost:4000/history', {
+    fetch('https://pravah.onrender.com/history', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -26,8 +28,8 @@ function Recommanded(props) {
         username: props.username,
       })
     })
-    .then(response => response.json())
-    .catch(error => console.error(error));
+      .then(response => response.json())
+      .catch(error => console.error(error));
   };
 
   const handleSearch = (event) => {
@@ -38,13 +40,27 @@ function Recommanded(props) {
     movie.Movie_Name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  if (!movies) {
+    return <Loading />;
+  }
+
   return (
-    <div>
+    <div className='recommanded'>
       <br />
       <div className="search-container">
         <input type="text" placeholder="Search movies" value={searchQuery} onChange={handleSearch} />
       </div>
+      <div className='head-language'>
+
+      <hr />
       <h1>Marathi Movies</h1>
+      </div>
+
+      
+     
+         
+      
+      
       <div className="card-container">
         {filteredMovies.map(movie => (
           <div className="card" key={movie.Movie_ID} onClick={() => handleClick(movie.Movie_ID)}>
