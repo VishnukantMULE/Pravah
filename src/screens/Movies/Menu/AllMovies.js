@@ -13,7 +13,7 @@ export default function AllMovies() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch('http://localhost:4000/movies/getallmovies');
+        const response = await fetch('https://pravahstudio.onrender.com/movies/getallmovies');
         if (response.ok) {
           const data = await response.json();
           setMovies(data);

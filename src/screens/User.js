@@ -5,7 +5,7 @@ import Saved from './Saved';
 import Music from './Music';
 import Profile from './Profile';
 import {  useLocation } from 'react-router-dom';
-import ShowAllMovies from '../screens/Movies/ShowAllMovies'
+import ShowAllMovies from './Movies/Show/ShowAllMovies'
 
 function User() {
   const location = useLocation();
