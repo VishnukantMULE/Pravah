@@ -5,6 +5,7 @@ import Saved from './Saved';
 import Music from './Music';
 import Profile from './Profile';
 import {  useLocation } from 'react-router-dom';
+import ShowAllMovies from '../screens/Movies/ShowAllMovies'
 
 function User() {
   const location = useLocation();
@@ -17,7 +18,8 @@ function User() {
       content = <Profile />;
       break;
     case "/user/rcm":
-      content = <Recommanded />;
+      // content = <Recommanded />;
+      content=<ShowAllMovies/>
       break;
     case "/user/trend":
       content = <Trending />;
@@ -38,8 +40,6 @@ function User() {
 
   return (
     <div>
-     
-      
         {content}
       </div>
   );

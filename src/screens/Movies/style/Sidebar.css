@@ -1,0 +1,86 @@
+/* Default styles for small screens (mobile devices) */
+.sidebar-container {
+    top: 65;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    padding: 10px 0;
+  }
+  
+  .sidebar-button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .button-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Hide button text by default */
+  .sidebar-button::after {
+    content: "";
+    display: none;
+  }
+  
+  /* Show button text on hover */
+  .sidebar-button:hover::after {
+    content: attr(alt);
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Styles for big screens using media query */
+  @media (min-width: 768px) {
+    .sidebar-container {
+      flex-direction: column;
+      justify-content: flex-start;
+      position: fixed;
+      top: 65px;
+      left: 0;
+      height: 100%;
+      width: 80px;
+      background-color: black;
+      padding-top: 20px; /* Add padding for better spacing */
+    }
+  
+    /* Hide button text on big screens */
+    .sidebar-button::after {
+      display: none;
+    }
+  
+    .sidebar-button {
+      margin-bottom: 20px;
+    }
+    
+    /* Adjust top position for sidebar with navbar */
+    .sidebar-container.with-navbar {
+      top: 65px;
+    }
+  }
+  .sidebar-button.selected {
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0);
+    }
+  

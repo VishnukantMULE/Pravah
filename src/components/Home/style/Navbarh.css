@@ -1,0 +1,164 @@
+
+
+
+.sidebar {
+  background-color: black;
+  color: white;
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  transition: right 0.3s;
+  padding-top: 65px; /* Adjusted padding top */
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+
+.navbar {
+  top: 0;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem; /* Adjusted padding */
+  height: 65px; /* Set navbar height */
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+}
+.navbar__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+
+
+.logout-button {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-button:hover {
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
+}
+.listp{
+  list-style: none;
+  margin: 10;
+
+}
+.listp li {
+  margin-bottom: 20px;
+}
+
+
+.mobile-toggle {
+  display: none;
+  z-index: 1100;
+
+}
+.navbar__link-div {
+  display: inline-block;
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 0.5rem 1rem;
+}
+
+.navbar__link-div.active {
+  border-bottom: 3px solid white;
+}
+
+.navbar__link-div:hover {
+  text-decoration: none;
+}
+
+
+
+@media (max-width: 768px) {
+  .navbar__menu {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  .navbar__links.mobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 250px;
+    background-color: black;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .navbar__links.mobile li {
+    padding: 1rem;
+  }
+
+  .sidebar {
+    left: auto;
+    right: -250px;
+  }
+
+  .sidebar.open {
+    right: 0;
+    top: 65px;
+  }
+}
+.navbar__link-div {
+  display: inline-block;
+  background-color: #000000;
+  color: white;
+  border: 1px solid white;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-right: 10px;
+  text-decoration: none;
+
+}
+
+.navbar__link-div:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+.navbar__link-div.selected {
+  background-color: #000000;
+  border: 1px solid white;
+  color: #ffffff  ;
+}
