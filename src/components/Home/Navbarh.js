@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './style/Navbarh.css';
+import { useAuth } from './../Auth/AuthContext'; // Adjust the path accordingly
 
-export default function Navbarh({ setUsername, username }) {
+export default function Navbarh() {
+  const { username, setUsername } = useAuth();
   const navigate = useNavigate();
-  const [selectedTab, setSelectedTab] = useState('rcm');
+  const location = useLocation();
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -22,17 +24,6 @@ export default function Navbarh({ setUsername, username }) {
     };
   }, []);
 
-  const handleTabSelect = (tab) => {
-    setSelectedTab(tab);
-    setIsMobileMenuOpen(false);
-    if (isMobile) {
-      setIsSidebarOpen(false);
-    }
-
-    // Manually navigate to the selected tab
-    navigate(`/${tab}`);
-  };
-
   const handleLogout = () => {
     setUsername('');
     navigate('/login');
@@ -49,9 +40,6 @@ export default function Navbarh({ setUsername, username }) {
   return (
     <>
       <nav className="navbar">
-        {/* <div className="navbar__logo">
-            Pravah Studio
-          </div> */}
         <Link to="/" className="company-logo">
           <h3>Pravah Studio</h3>
         </Link>
@@ -62,72 +50,113 @@ export default function Navbarh({ setUsername, username }) {
         )}
         {(isMobileMenuOpen || !isMobile) && (
           <div className={`navbar__menu${isMobile ? ' mobile' : ''}`}>
-            {username ? (
-              <div className="navbar__username">{username}</div>
+            {!username ? (
+              <>
+                {location.pathname === '/register' && (
+                  <div
+                    className={`navbar__link-div`}
+                    onClick={() => {
+                      navigate('/login');
+                    }}
+                  >
+                    Login
+                  </div>
+                )}
+                {location.pathname === '/login' && (
+                  <div
+                    className={`navbar__link-div`}
+                    onClick={() => {
+                      navigate('/register');
+                    }}
+                  >
+                    Register
+                  </div>
+                )}
+              </>
             ) : (
               <>
-                <div
-                  className={`navbar__link-div${selectedTab === "login" ? ' selected' : ''}`}
-                  onClick={() => {
-                    navigate('/login');
-                    handleTabSelect('login');
-                  }}
-                >
-                  Login
-                </div>
-                <div
-                  className={`navbar__link-div${selectedTab === "register" ? ' selected' : ''}`}
-                  onClick={() => {
-                    navigate('/register');
-                    handleTabSelect('register');
-                  }}
-                >
-                  Register
-                </div>
+                {/* <div className="navbar__username"></div> */}
+                <ul className="navbar__links">
+                  <li>
+                    <span className={` usernameli`}>
+                    {username}
+                    </span>
+                  </li>
+                  <li>
+                    <span className={`navbar__link-div`} onClick={() => navigate('/movies')}>
+                      Movies
+                    </span>
+                  </li>
+                  <li>
+                    <span className={`navbar__link-div`} onClick={() => navigate('/music')}>
+                      Music
+                    </span>
+                  </li>
+                  <li>
+                    <button className="logout-button" onClick={handleLogout}>
+                      Logout
+                    </button>
+                  </li>
+                </ul>
               </>
-            )}
-            {username && (
-              <ul className="navbar__links">
-                <li>
-                  <span className={`navbar__link-div${selectedTab === "movies" ? ' active' : ''}`} onClick={() => handleTabSelect("movies")}>
-                    Movies
-                  </span>
-                </li>
-                <li>
-                  <span className={`navbar__link-div${selectedTab === "music" ? ' active' : ''}`} onClick={() => handleTabSelect("music")}>
-                    Music
-                  </span>
-                </li>
-                <li>
-                  <button className="logout-button" onClick={handleLogout}>Logout</button>
-                </li>
-              </ul>
             )}
           </div>
         )}
       </nav>
-      {isMobile && isSidebarOpen && (
-        <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-          <ul className='listp'>
+      {isMobile && (
+  <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+    <ul className="listp">
+      {!username ? (
+        <>
+          {location.pathname === '/register' && (
             <li>
-              {username}
-            </li>
-            <li>
-              <span className={`navbar__link-div${selectedTab === "movies" ? ' active' : ''}`} onClick={() => handleTabSelect("movies")}>
-                Movies
+              <span
+                className={`navbar__link-div`}
+                onClick={() => {
+                  navigate('/login');
+                }}
+              >
+                Login
               </span>
             </li>
+          )}
+          {location.pathname === '/login' && (
             <li>
-              <span className={`navbar__link-div${selectedTab === "music" ? ' active' : ''}`} onClick={() => handleTabSelect("music")}>
-                Music
+              <span
+                className={`navbar__link-div`}
+                onClick={() => {
+                  navigate('/register');
+                }}
+              >
+                Register
               </span>
             </li>
-            <li>
-              <button className="logout-button" onClick={handleLogout}>Logout</button>
-            </li>
-          </ul>
-        </div>
+          )}
+        </>
+      ) : (
+        <>
+          <li>{username}</li>
+          <li>
+            <span className={`navbar__link-div`} onClick={() => navigate('/movies')}>
+              Movies
+            </span>
+          </li>
+          <li>
+            <span className={`navbar__link-div`} onClick={() => navigate('/music')}>
+              Music
+            </span>
+          </li>
+          <li>
+            <button className="logout-button" onClick={handleLogout}>
+              Logout
+            </button>
+          </li>
+        </>
       )}
+    </ul>
+  </div>
+)}
+
     </>
   );
 }

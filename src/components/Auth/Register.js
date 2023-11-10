@@ -4,7 +4,7 @@ import './style/Register.css';
 import Loading from '../../system/Loading';
 
 
-export default function Register() {
+export default function Register({ setNavbarTab }) {
   const [username, setUsername] = useState('');
   const [dob, setDob] = useState('');
   const [email, setEmail] = useState('');
@@ -17,7 +17,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:4000/auth/register', {
+      const response = await fetch('https://pravahstudio.onrender.com/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -32,11 +32,14 @@ export default function Register() {
       });
       const data = await response.json();
       console.log(data);
-      navigate('/linksend');
+      setNavbarTab('login');
+
+      // Update the navigation to go to the login page instead of /linksend
+      navigate('/login');
     } catch (err) {
       console.error(err);
       alert("Something went wrong, please try again later.")
-    }finally {
+    } finally {
       setLoading(false);
     }
   };

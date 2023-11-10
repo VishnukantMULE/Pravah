@@ -3,13 +3,17 @@ import { useNavigate, Link } from 'react-router-dom';
 import './style/Login.css';
 import Loading from '../../system/Loading';
 import Alert from '../../system/Alert';
+import { useAuth } from './AuthContext'; 
 
-export default function Login({ setUsername }) {
+
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [alert, setAlert] = useState(null);
+  const { setUsername } = useAuth();
+
 
   const navigate = useNavigate();
 
@@ -17,17 +21,18 @@ export default function Login({ setUsername }) {
     e.preventDefault();
     setLoading(true);
     setAlert(null);
+  
     try {
-      const response = await fetch('http://localhost:4000/auth/login', {
+      const response = await fetch('https://pravahstudio.onrender.com/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.status === 200) {
         setUsername(data.username);
         navigate('/movies');
@@ -39,10 +44,14 @@ export default function Login({ setUsername }) {
       setAlert({ message: 'An error occurred. Please try again later.', type: 'error' });
       console.error(err);
       setError('An error occurred. Please try again later.');
+  
+      // Navigate to the login page in case of an error
+      navigate('/login');
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="login-container">

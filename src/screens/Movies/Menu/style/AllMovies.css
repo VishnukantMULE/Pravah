@@ -13,7 +13,7 @@
   .movie-card {
     display: flex;
     flex-direction: column;
-    border: 1px solid #000000;
+    border: 1px solid #909090;
     text-align: center;
     transition: transform 0.3s ease;
     /* height: 380px; */
@@ -21,6 +21,7 @@
   
   .movie-card:hover {
     transform: scale(1.05);
+
   }
   
   /* Style for the movie image */
@@ -48,6 +49,7 @@
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
+    border: 1px solid rgb(60, 60, 60);
   }
   
   /* Style for the buttons */
@@ -72,8 +74,8 @@
   }
   
   .button-container button:hover {
-    background-color: #7b7b7b;
-    border: 1px solid black;
+    background-color: #545454;
+    border: 1px solid rgb(110, 110, 110);
   }
   
   /* Responsive styling for screens up to 768px wide */

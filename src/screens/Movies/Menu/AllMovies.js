@@ -4,16 +4,26 @@ import defaultImage from './style/PNG/PravahStudio.png';
 import Loading from '../../../system/Loading';
 import playbutton from './style/PNG/play-store.png'
 import bookmark from './style/PNG/bookmark.png'
+import { useNavigate } from 'react-router-dom';
+
+import { MovieContext } from '../Menu/MovieContext';
+
+
 
 
 export default function AllMovies() {
+
+  const { setSelectedMovieId } = React.useContext(MovieContext);
+
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch('http://localhost:4000/movies/getallmovies');
+        const response = await fetch('https://pravahstudio.onrender.com/movies/getallmovies');
         if (response.ok) {
           const data = await response.json();
           setMovies(data);
@@ -23,7 +33,7 @@ export default function AllMovies() {
       } catch (error) {
         console.error('Error fetching movies:', error);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
@@ -31,26 +41,32 @@ export default function AllMovies() {
   }, []);
 
   const handlePlayClick = (movieId) => {
-    console.log(`Play movie with ID: ${movieId}`);
+    setSelectedMovieId(movieId);
+    navigate(`/movies/play/${movieId}`);
   };
-
+  
+  
   const handleSaveClick = (movieId) => {
     console.log(`Save movie with ID: ${movieId}`);
   };
 
   return (
     <div className="movies-container">
-      {loading && <Loading />} {/* Render loading component while loading */}
+
+      {loading && <Loading />}
       {!loading &&
         movies.map((movie) => (
           <div className="movie-card" key={movie._id}>
-            <img src={defaultImage || movie.Movie_Image || defaultImage} alt={movie.Movie_Name} />
+            <img src={movie.Movie_Image || defaultImage} onError={(e) => { e.target.onerror = null; e.target.src = defaultImage }} alt={movie.Movie_Name} />
             <h2>{movie.Movie_Name}</h2>
             <p className='year'> {movie.Movie_Year}</p>
             <div className="button-container">
               <button onClick={() => handlePlayClick(movie._id)}>
-                <img src={playbutton} alt='play' />
+                <img src={playbutton} alt="play" />
               </button>
+
+
+
               <button onClick={() => handleSaveClick(movie._id)}>
                 <img src={bookmark} alt="save" />
               </button>
