@@ -6,6 +6,7 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 40px;
     padding: 40px;
+    margin-top: 100px;
   }
   
   /* Style for the movie card */
@@ -15,7 +16,7 @@
     border: 1px solid #000000;
     text-align: center;
     transition: transform 0.3s ease;
-    height: 380px;
+    /* height: 380px; */
   }
   
   .movie-card:hover {

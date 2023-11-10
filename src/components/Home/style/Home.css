@@ -1,0 +1,124 @@
+body {
+    margin-top: 50px;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  .welcome-section {
+    padding: 150px 20px; /* Adjust the padding for a larger height */
+    text-align: center;
+    background-color: #000000; /* Change the background color */
+    color: #ffffff; /* Text color */
+  }
+  
+  .welcome-content {
+    display: flex;
+    flex-direction: column-reverse; /* Display image below text on smaller screens */
+    align-items: center;
+  }
+  
+  .welcome-text {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-section p {
+    font-size: 1.5em;
+    line-height: 1.6;
+  }
+  
+  .welcome-image {
+    max-width: 100%;
+    height: auto; /* Maintain image aspect ratio */
+    border-radius: 8px; /* Add a border radius for a modern touch */
+  }
+  
+  /* Media queries for responsiveness */
+  @media only screen and (min-width: 768px) {
+    .welcome-content {
+      flex-direction: row; /* Display image next to text on larger screens */
+      justify-content: center;
+    }
+  
+    .welcome-text {
+      text-align: left;
+      margin-right: 20px;
+    }
+  
+    .welcome-section h1 {
+      font-size: 4em;
+    }
+  
+    .welcome-section p {
+      font-size: 1.8em;
+    }
+  }
+  .section {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid;
+    margin: 20px;
+  }
+  
+  .section h1,
+  .section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  .section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #d1d1d1;
+  }
+  
+  .drawing {
+    height: 2px;
+    width: 80%;
+    background: linear-gradient(to right, transparent, #000000, transparent);
+    margin: 40px auto;
+  }
+  
+  
+  
+  /* Media queries for responsiveness */
+  @media only screen and (max-width: 768px) {
+    .section {
+      padding: 60px 15px;
+    }
+  
+    .section h1,
+    .section h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+  
+    .section p {
+      font-size: 1em;
+    }
+  
+    .drawing {
+      margin: 30px auto;
+    }
+  
+    .footer-section {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .footer-logo {
+      font-size: 1.2em;
+    }
+  }
+  

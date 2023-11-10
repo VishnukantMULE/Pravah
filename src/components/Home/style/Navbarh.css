@@ -17,7 +17,14 @@
   right: 0;
 }
 
-
+.company-logo{
+  text-decoration: none;
+  color: white;
+}
+.company-logo:hover{
+  text-decoration: none;
+  color: white;
+}
 .navbar {
   top: 0;
   background-color: black;

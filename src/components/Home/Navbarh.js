@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './style/Navbarh.css';
 
 export default function Navbarh({ setUsername, username }) {
@@ -49,9 +49,12 @@ export default function Navbarh({ setUsername, username }) {
   return (
     <>
       <nav className="navbar">
-        <div className="navbar__logo">
-          Pravah Studio
-        </div>
+        {/* <div className="navbar__logo">
+            Pravah Studio
+          </div> */}
+        <Link to="/" className="company-logo">
+          <h3>Pravah Studio</h3>
+        </Link>
         {isMobile && (
           <button className="mobile-toggle" onClick={toggleMobileMenu}>
             ☰

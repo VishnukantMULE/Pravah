@@ -2,21 +2,23 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './style/Login.css';
 import Loading from '../../system/Loading';
+import Alert from '../../system/Alert';
 
 export default function Login({ setUsername }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [alert, setAlert] = useState(null);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
-
+    setAlert(null);
     try {
-      const response = await fetch('https://pravahstudio.onrender.com/auth/login', {
+      const response = await fetch('http://localhost:4000/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,11 +30,13 @@ export default function Login({ setUsername }) {
 
       if (response.status === 200) {
         setUsername(data.username);
-        navigate('/dashboard');
+        navigate('/movies');
       } else {
+        setAlert({ message: data.message, type: 'error' });
         setError(data.message);
       }
     } catch (err) {
+      setAlert({ message: 'An error occurred. Please try again later.', type: 'error' });
       console.error(err);
       setError('An error occurred. Please try again later.');
     } finally {
@@ -70,6 +74,8 @@ export default function Login({ setUsername }) {
       <p className="register-link">
         Don't have an account? <Link to="/register">Register here</Link>
       </p>
+      {alert && <Alert message={alert.message} type={alert.type} />} {/* Show custom alert for errors */}
+
       {loading && <Loading />} {/* Show loading spinner when loading is true */}
     </div>
   );
