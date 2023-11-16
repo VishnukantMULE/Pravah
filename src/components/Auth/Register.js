@@ -17,7 +17,7 @@ export default function Register({ setNavbarTab }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://pravahstudio.onrender.com/auth/register', {
+      const response = await fetch('http://localhost:4000/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -34,12 +34,19 @@ export default function Register({ setNavbarTab }) {
       console.log(data);
       setNavbarTab('login');
 
-      // Update the navigation to go to the login page instead of /linksend
       navigate('/login');
     } catch (err) {
       console.error(err);
-      alert("Something went wrong, please try again later.")
-    } finally {
+      if (err.message.includes('Required fields')) {
+        alert('Please fill in all required fields.');
+      } else if (err.message.includes('Activation email')) {
+        alert('Error sending activation email. Please try again later.');
+      } else {
+        alert(`Registration failed: ${err.message}`);
+      }
+    }
+    
+     finally {
       setLoading(false);
     }
   };

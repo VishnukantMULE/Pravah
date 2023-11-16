@@ -12,7 +12,7 @@ export default function TrendingMovie() {
     useEffect(() => {
       const fetchMovies = async () => {
         try {
-          const response = await fetch('https://pravahstudio.onrender.com/movies/trendingmovies');
+          const response = await fetch('http://localhost:4000/movies/trendingmovies');
           if (response.ok) {
             const data = await response.json();
             setMovies(data);

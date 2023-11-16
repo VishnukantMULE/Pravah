@@ -1,0 +1,27 @@
+/* MoviePlay.css */
+
+.movie-play-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .movie-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .movie-details {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .movie-loading {
+    margin-top: 20px;
+  }
+  
+  .movie-action-container {
+    margin-top: 20px;
+  }
+  

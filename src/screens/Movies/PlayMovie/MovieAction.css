@@ -1,0 +1,47 @@
+/* MovieAction.css */
+
+.movie-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .action-button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px; /* Adjust spacing between buttons */
+  }
+  
+  .action-button img {
+    width: 20px; /* Default icon size for small screens */
+    height: 20px;
+    margin-right: 5px; /* Adjust spacing between icon and text */
+  }
+  
+  /* Adjust icon sizes for medium screens */
+  @media screen and (min-width: 768px) {
+    .action-button img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+  /* Adjust icon sizes for large screens */
+  @media screen and (min-width: 1200px) {
+    .action-button img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  .action-button.active img {
+    filter: invert(42%) sepia(62%) saturate(5995%) hue-rotate(327deg) brightness(91%) contrast(101%);
+    /* Adjust the filter for the active state (optional) */
+  }
+  
