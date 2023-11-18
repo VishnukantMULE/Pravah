@@ -17,7 +17,7 @@ export default function Register({ setNavbarTab }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:4000/auth/register', {
+      const response = await fetch('https://pravahstudio.onrender.com/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

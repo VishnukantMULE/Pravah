@@ -10,6 +10,7 @@ import Movies from './screens/Movies/Movies';
 import { AuthProvider } from './components/Auth/AuthContext'
 import { MovieProvider } from './screens/Movies/Menu/MovieContext';
 import MoviePlay from './screens/Movies/PlayMovie/MoviePlay';
+import MusicDash from './screens/Music/MusicDash';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path='/movies' element={<Movies />}>
               <Route path='play/:id' element={<MoviePlay />} />
             </Route>
+            <Route path='/music' element={<MusicDash/>} />
 
           </Routes>
         </MovieProvider>

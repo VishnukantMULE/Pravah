@@ -12,7 +12,7 @@ export default function MoviePlay() {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/movies/getthatmovies/${id}`);
+        const response = await fetch(`https://pravahstudio.onrender.com/movies/getthatmovies/${id}`);
 
         if (response.ok) {
           const data = await response.json();
