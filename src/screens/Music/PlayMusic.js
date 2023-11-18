@@ -64,14 +64,15 @@ export default function PlayMusic({ music, onClose, onNext }) {
     >
       {musicDetails ? (
         <>
-          <h2 className="play-music-title">Now Playing</h2>
-          <p>Music Name: {musicDetails.Music_Name}</p>
+         
+          <p>{musicDetails.Music_Name}</p>
           <div className="play-music-controls">
             <div className="audio-container">
-              <audio ref={audioElement} onEnded={handleEnded} controls>
-                <source src={musicDetails.Music_Link} type="audio/mp3" />
-                Your browser does not support the audio tag.
-              </audio>
+            <audio ref={audioElement} onEnded={handleEnded} controls autoPlay>
+  <source src={musicDetails.Music_Link} type="audio/mp3" />
+  Your browser does not support the audio tag.
+</audio>
+
             </div>
             <div className="additional-controls">
               <button onClick={togglePlayPause}>
